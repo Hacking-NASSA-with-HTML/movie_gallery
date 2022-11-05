@@ -1,4 +1,4 @@
-# movie gallery
+# Movie gallery
 
 ---
 Single page application.
