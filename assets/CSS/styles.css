@@ -7,6 +7,9 @@ body {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     background-color: red;
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
 }
 
 .title-container {
@@ -19,4 +22,161 @@ body {
 .titleH1 {
     text-align: center;
     color: white;
+}
+
+button {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.film-cards-container-title {
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.film-cards-container-favorite-films {
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.film-cards-container-favorite-films:hover {
+    background-color: rgb(197, 197, 197);
+}
+
+.film-card-poster {
+    width: fit-content;
+    height: fit-content;
+    max-height: 350px;
+    height: 350px;
+    min-width: 235px;
+    width: 235px;
+    border-radius: 30px;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
+.film-cards-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 90px;
+    max-width: 900px;
+    gap: 50px 30px;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    line-height: 2.1rem;
+    margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+    .film-cards-container {
+        justify-content: center;
+    }
+}
+
+.film-cards-container .film-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    min-width: 235px;
+}
+
+.film-card-title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    max-width: 80%;
+    cursor: pointer;
+}
+
+.film-card-title:hover {
+    text-decoration: underline;
+}
+
+.modal .film-card-title:hover {
+    cursor: auto;
+    text-decoration: none;
+}
+
+.film-card-year {
+    font-size: 15px;
+    line-height: 20px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.film-card-description {
+    font-size: 23px;
+}
+
+.film-card-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modal .film-card-button {
+    cursor: auto;
+}
+
+.film-card-button-img {
+    width: 30px;
+    height: 30px;
+}
+
+.modal {
+    position: fixed;
+    display: flex;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 1;
+    min-height: 100vh;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.close-modal {
+    height: 40px;
+    width: 40px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: -50px;
+    cursor: pointer;
+}
+
+.close-modal-icon {
+    height: 40px;
+    width: 40px;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    padding: 30px 0;
+    border-radius: 30px;
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
