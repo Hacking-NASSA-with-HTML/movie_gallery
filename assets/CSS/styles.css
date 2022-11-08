@@ -6,7 +6,8 @@ body {
     border: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    background-color: red;
+    /* background-color: red; */
+    background-color: #3b4aed;
     min-height: 100vh;
     max-height: 100vh;
     height: 100vh;
