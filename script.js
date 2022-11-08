@@ -6,6 +6,7 @@ import { toStorage } from "./assets/js/toStorage.js";
 import { renderFilmCard } from "./assets/js/renderFilmCard.js";
 import { sortAllFilmsByIsFavorite } from "./assets/js/sortAllFilmsByIsFavorite.js";
 import { sortFavoriteFilms } from "./assets/js/sortFavoriteFilms.js";
+import { renderFilmModal } from "./assets/js/renderFilmModal.js";
 
 if (!fromStorage(ALL_FILMS)) {
     toStorage(ALL_FILMS, filmsArray)
@@ -28,9 +29,16 @@ function renderFilmsList(filmsList, listType) {
     if (filmsList.length) {
         filmsList.forEach((film, i) => renderFilmCard(film, filmsContainerHTML, i))
     } else {
-        filmsContainerHTML.innerHTML = `<div class='film-card-title'>Films list is empty! Add some films</div>`
+        filmsContainerHTML.innerHTML = `<div class='film-card-year'>Films list is empty! Add movie</div>`
     }
-    filmsContainerHTML.addEventListener('click', (event) => handleLikeButtonClick(listType, event))
+
+    // Listener for add/remove movie to Favorite List
+    filmsContainerHTML.addEventListener('click', (event) =>
+        handleLikeButtonClick(listType, event))
+
+    // Listener for open/close Modal window
+    filmsContainerHTML.addEventListener('click', (event) =>
+        handleOpenModal(filmsList, filmsContainerHTML, event))
 }
 
 function handleFilmListSwitch(switchButton) {
@@ -82,5 +90,21 @@ function handleLikeButtonClick(listType, event) {
             default:
                 return
         }
+    }
+}
+
+// Function to open/close Modal
+function handleOpenModal(filmsList, targetContainer, event) {
+    if (event.target.className === 'film-card-title') {
+        const filmIndex = event.target.parentNode.dataset.filmindex
+        const clickedFilm = filmsList[filmIndex]
+
+        renderFilmModal(clickedFilm, targetContainer)
+
+        const closeModalButton = document.querySelector('.close-modal')
+        closeModalButton.addEventListener('click', () => {
+            const modal = document.querySelector('.modal')
+            modal.remove()
+        }, { once: true })
     }
 }

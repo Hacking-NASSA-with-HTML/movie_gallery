@@ -1,6 +1,5 @@
 export function renderFilmCard(film, targetContainer, i) {
     const { imgUrl, movieName, releaseYear, isFavorite } = film
-
     const btnImg = isFavorite ? 'favorite_48.png' : 'notFavorite48.png'
 
     targetContainer.insertAdjacentHTML('beforeend',
