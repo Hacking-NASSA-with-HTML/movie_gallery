@@ -23,7 +23,11 @@ function renderFilmsList(filmsList, listType) {
 
     const filmsContainerHTML = document.querySelector('.film-cards-container')
 
-    filmsList.forEach((film, i) => renderFilmCard(film, filmsContainerHTML, i))
+    if (filmsList.length) {
+        filmsList.forEach((film, i) => renderFilmCard(film, filmsContainerHTML, i))
+    } else {
+        filmsContainerHTML.innerHTML = `<div class='film-card-title'>Films list is empty! Add some films</div>`
+    }
 }
 
 function handleFilmListSwitch(switchButton) {
@@ -38,5 +42,14 @@ function handleFilmListSwitch(switchButton) {
             switchButton.innerText = 'Click to See All Films'
             filmsContainerHTML.remove()
             renderFilmsList(favoriteFilms, FAVORITE_FILMS)
+            return
+        case FAVORITE_FILMS:
+            filmsCardContainerTitle.innerText = 'All Films'
+            switchButton.innerText = 'Click to See Favorite Films'
+            filmsContainerHTML.remove()
+            renderFilmsList(fromStorage(ALL_FILMS), ALL_FILMS)
+            return
+        default:
+            return
     }
 }
