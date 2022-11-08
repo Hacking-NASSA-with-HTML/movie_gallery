@@ -2,4 +2,5 @@
 
 ---
 Single page application.
-Educational JavaScript project.
+Educational JavaScript project
+with use of browser local storage.
