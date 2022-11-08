@@ -33,19 +33,23 @@ button {
 .film-cards-container-title {
     font-size: 30px;
     line-height: 35px;
+    margin: 0 0 20px 20px;
+    color: white;
 }
 
 .film-cards-container-favorite-films {
     font-size: 20px;
     line-height: 25px;
-    margin-bottom: 50px;
+    margin: 0 0 50px 20px;
     border-radius: 5px;
-    transition: .2s;
+    transition: .3s;
+    color: white;
     cursor: pointer;
 }
 
 .film-cards-container-favorite-films:hover {
     background-color: rgb(197, 197, 197);
+    color: black;
 }
 
 .film-card-poster {
