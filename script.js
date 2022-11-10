@@ -41,28 +41,42 @@ function renderFilmsList(filmsList, listType) {
         handleOpenModal(filmsList, filmsContainerHTML, event))
 }
 
+let ordinaryFavoriteListSwitcher = false
 function handleFilmListSwitch(switchButton) {
     const filmsContainerHTML = document.querySelector('.film-cards-container')
     const filmsCardContainerTitle = document.querySelector('.film-cards-container-title')
-
     const favoriteFilms = fromStorage(ALL_FILMS).filter(({ isFavorite }) => isFavorite)
 
-    switch (filmsContainerHTML.id) {
-        case ALL_FILMS:
-            filmsCardContainerTitle.innerText = 'Favorite Films'
-            switchButton.innerText = 'Click to See All Films'
-            filmsContainerHTML.remove()
-            renderFilmsList(favoriteFilms, FAVORITE_FILMS)
-            return
-        case FAVORITE_FILMS:
-            filmsCardContainerTitle.innerText = 'All Films'
-            switchButton.innerText = 'Click to See Favorite Films'
-            filmsContainerHTML.remove()
-            renderFilmsList(fromStorage(ALL_FILMS), ALL_FILMS)
-            return
-        default:
-            return
+    if (!ordinaryFavoriteListSwitcher) {
+        filmsCardContainerTitle.innerText = 'Favorite Films'
+        switchButton.innerText = 'Click to See All Films'
+        filmsContainerHTML.remove()
+        renderFilmsList(favoriteFilms, FAVORITE_FILMS)
+        ordinaryFavoriteListSwitcher = true
+    } else {
+        filmsCardContainerTitle.innerText = 'All Films'
+        switchButton.innerText = 'Click to See Favorite Films'
+        filmsContainerHTML.remove()
+        renderFilmsList(fromStorage(ALL_FILMS), ALL_FILMS)
+        ordinaryFavoriteListSwitcher = false
     }
+
+    // switch (filmsContainerHTML.id) {
+    //     case ALL_FILMS:
+    //         filmsCardContainerTitle.innerText = 'Favorite Films'
+    //         switchButton.innerText = 'Click to See All Films'
+    //         filmsContainerHTML.remove()
+    //         renderFilmsList(favoriteFilms, FAVORITE_FILMS)
+    //         return
+    //     case FAVORITE_FILMS:
+    //         filmsCardContainerTitle.innerText = 'All Films'
+    //         switchButton.innerText = 'Click to See Favorite Films'
+    //         filmsContainerHTML.remove()
+    //         renderFilmsList(fromStorage(ALL_FILMS), ALL_FILMS)
+    //         return
+    //     default:
+    //         return
+    // }
 }
 
 function handleLikeButtonClick(listType, event) {
