@@ -49,13 +49,13 @@ function handleFilmListSwitch(switchButton) {
 
     if (!ordinaryFavoriteListSwitcher) {
         filmsCardContainerTitle.innerText = 'Favorite Films'
-        switchButton.innerText = 'Click to See All Films'
+        switchButton.innerText = 'Click me to See All Films'
         filmsContainerHTML.remove()
         renderFilmsList(favoriteFilms, FAVORITE_FILMS)
         ordinaryFavoriteListSwitcher = true
     } else {
         filmsCardContainerTitle.innerText = 'All Films'
-        switchButton.innerText = 'Click to See Favorite Films'
+        switchButton.innerText = 'Click me to See Favorite Films'
         filmsContainerHTML.remove()
         renderFilmsList(fromStorage(ALL_FILMS), ALL_FILMS)
         ordinaryFavoriteListSwitcher = false
