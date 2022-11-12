@@ -60,23 +60,6 @@ function handleFilmListSwitch(switchButton) {
         renderFilmsList(fromStorage(ALL_FILMS), ALL_FILMS)
         ordinaryFavoriteListSwitcher = false
     }
-
-    // switch (filmsContainerHTML.id) {
-    //     case ALL_FILMS:
-    //         filmsCardContainerTitle.innerText = 'Favorite Films'
-    //         switchButton.innerText = 'Click to See All Films'
-    //         filmsContainerHTML.remove()
-    //         renderFilmsList(favoriteFilms, FAVORITE_FILMS)
-    //         return
-    //     case FAVORITE_FILMS:
-    //         filmsCardContainerTitle.innerText = 'All Films'
-    //         switchButton.innerText = 'Click to See Favorite Films'
-    //         filmsContainerHTML.remove()
-    //         renderFilmsList(fromStorage(ALL_FILMS), ALL_FILMS)
-    //         return
-    //     default:
-    //         return
-    // }
 }
 
 function handleLikeButtonClick(listType, event) {
