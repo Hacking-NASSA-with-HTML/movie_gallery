@@ -43,6 +43,7 @@ button {
     line-height: 25px;
     margin: 0 0 50px 20px;
     border-radius: 5px;
+    border: 2px solid red;
     transition: .3s;
     color: white;
     cursor: pointer;
