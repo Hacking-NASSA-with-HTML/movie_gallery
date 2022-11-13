@@ -56,6 +56,10 @@ button {
     color: black;
 }
 
+.film-cards-container-favorite-films:active {
+    outline: 2px solid red;
+}
+
 .film-card-poster {
     width: fit-content;
     height: fit-content;
